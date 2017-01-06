@@ -31,7 +31,8 @@ NUMBER = 6
 SALARY = U$ 2254.75
 */
 
-#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 

@@ -32,19 +32,76 @@ Perimetro = 12.1
 #include <stdlib.h>
 #include <stdio.h>
 
-double armazenaDouble();
+float armazenafloat();
+void testeTri (float a,float b, float c);
 
 int main(int argc, char const *argv[])
 {
-	double A, B, C, aux;
+	float A, B, C, aux;
+	A = armazenafloat();
+	B = armazenafloat();
+	C = armazenafloat();
+	testeTri(A,B,C);
+
+	system("PAUSE");
 	return 0;
 }
 
-double armazenaDouble()
+float armazenafloat()
 {
-	double valor;
-	scanf("%d",valor);
+	float valor;
+	scanf("%f",&valor);
 	fflush(stdin);
 
 	return valor;
+}
+
+void testeTri (float a,float b, float c)
+{
+	int tam = 3;
+	float vetor[3], aux, area=0, perimetro=0, maior, menor;
+	vetor[0] = a;
+	vetor[1] = b;
+	vetor[2] = c;
+	for (int j = 0; j < tam-1; j++)
+	{
+		for (int i = 0; i < tam-1; i++)
+		{	
+			if (vetor[i]>vetor[i+1])
+			{
+				aux = vetor[i];
+				vetor[i] = vetor[i+1];
+				vetor[i+1] = aux;	
+			}
+		}
+	}
+	
+	for (int i = 0; i < tam; i++)
+	{
+		printf("%f\n", vetor[i]);
+	}
+
+	
+	if (vetor[2]<vetor[0]+vetor[1])
+	{
+		perimetro=vetor[0]+vetor[1]+vetor[2];
+		printf("Perimetro = %f\n", perimetro);
+	}
+	else
+	{
+		if (a<b)
+		{
+			maior = b;
+			menor = a;
+		}
+		else
+		{
+			maior = a;
+			menor = b;
+		}
+
+		area = c * (maior - menor) + menor * c;
+		printf("area = %f\n", area);
+	}
+
 }

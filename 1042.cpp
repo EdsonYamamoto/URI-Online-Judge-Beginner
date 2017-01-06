@@ -59,8 +59,6 @@ int main() {
 		}
 	}
 	
-	medio < maior
-	medio > menor
 	
 	
 	printf("%d\n",maior);
