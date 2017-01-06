@@ -33,3 +33,76 @@ NAO FORMA TRIANGULO
 6.0 8.0 10.0
 TRIANGULO RETANGULO
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+float armazenaFloat();
+void bubbleSort(float *pont, int tam);
+void tpTriang(float a, float b, float c);
+
+int main(int argc, char const *argv[])
+{
+	int tamanho = 3;
+	float A,B,C, vetor[tamanho], *pont;
+	A = armazenaFloat();
+	B = armazenaFloat();
+	C = armazenaFloat();
+	vetor[0] = A;
+	vetor[1] = B;
+	vetor[2] = C;
+	pont = vetor;
+	bubbleSort(pont,tamanho);
+	A = vetor[0];
+	B = vetor[1];
+	C = vetor[2];
+	tpTriang(A,B,C);
+	system("PAUSE");
+	return 0;
+}
+
+float armazenaFloat()
+{
+	float valor;
+	scanf("%f",&valor);
+	fflush(stdin);
+	return valor;
+}
+
+
+void bubbleSort(float *pont, int tam)
+{
+	float aux;
+	for (int j = 0; j < tam-1; j++)
+	{
+		for (int i = 0; i < tam-1; i++)
+		{
+			if (*(pont+i) < *(pont+i+1))
+			{
+				aux = *(pont+i);
+				*(pont+i) = *(pont+i+1);
+				*(pont+i+1) = aux;
+			}
+		}
+	}
+}
+
+
+void tpTriang(float a, float b, float c)
+{
+	if(a>=b+c)
+		printf("NAO FORMA TRIANGULO\n");
+	else
+	{
+		if (a == b+c)
+			printf("TRIANGULO RETANGULO\n");
+		if (a > b+c)
+			printf("TRIANGULO OBTUSANGULO\n");
+		if (a < b+c)
+			printf("TRIANGULO ACUTANGULO\n");
+		if (a == b && a == c)
+			printf("TRIANGULO EQUILATERO\n");
+		if (a == b || a == c || b == c)
+			printf("TRIANGULO ISOSCELES\n");
+	}
+}

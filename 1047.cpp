@@ -23,3 +23,8 @@ O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)
 7 10 8 9
 O JOGO DUROU 0 HORA(S) E 59 MINUTO(S)
 */
+int main()
+{
+	
+	return 0;
+}
