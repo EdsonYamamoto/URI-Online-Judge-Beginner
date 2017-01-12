@@ -20,5 +20,46 @@ Exemplo de Entrada	Exemplo de Saída
 2^2 = 4
 4^2 = 16
 6^2 = 36
- 
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+int armazenaInt();
+void teste();
+
+int main()
+{
+	int numRepet, *pontNum;
+
+	numRepet = armazenaInt();
+
+	int vet[numRepet];
+	pontNum=vet;
+
+	for (int i = 0; i < numRepet; i++)
+		*(pontNum+i) = armazenaInt();
+
+	for (int i = 0; i < numRepet; i++)
+		printf("%i^2 = %i\n", *(pontNum+i), pow(*(pontNum+i),2));
+
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+}
