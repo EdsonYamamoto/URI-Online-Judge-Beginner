@@ -25,3 +25,24 @@ I=9 J=15
 I=9 J=14
 I=9 J=13
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+	int i=1, j=7, m=1;
+	for (int k = 0; k <= 3; k++)
+	{
+		for (int l = 0; l < 3; l++)
+		{
+			printf("I=%i J=%i\n", i, j);
+			j--;
+		}
+		j += 4+m;
+		i = m * 3;
+		m++;
+	}
+	system("PAUSE");
+	return 0;
+}

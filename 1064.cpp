@@ -23,3 +23,37 @@ Exemplo de Entrada	Exemplo de Saída
 4 valores positivos
 7.4
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+float armazenaFloat();
+
+int main(int argc, char const *argv[])
+{
+	float contador[6];
+	int aux=0, somador=0;
+
+	for (int i = 0; i < 6; i++)
+	{
+		contador[i]=armazenaFloat();
+		if (contador[i]>0)
+		{
+			somador += contador[i];
+			aux++;
+		}
+	}
+
+	printf("%i valores positivos\n%i\n", aux, somador/aux);
+	system("PAUSE");	
+	return 0;
+}
+
+float armazenaFloat()
+{
+	float valor;
+	scanf("%f", &valor);
+	fflush(stdin);
+
+	return valor;
+}

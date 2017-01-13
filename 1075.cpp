@@ -21,3 +21,46 @@ Exemplo de Entrada	Exemplo de Saída
 41
 ...
 */
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+
+void imprimiVet(int tamanho, int limInf, int limSup);	
+
+void teste();
+
+int main()
+{
+	int repet, lInf=1, lSup=1000;
+
+	repet = armazenaInt();
+	
+	imprimiVet(repet, lInf, lSup);
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+} 
+
+void imprimiVet(int tamanho, int limInf, int limSup)
+{
+	for (int i = limInf; i < limSup; i++)
+		if (i%tamanho==2)
+			printf("%i\n", i);
+}

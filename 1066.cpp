@@ -24,3 +24,41 @@ Exemplo de Entrada	Exemplo de Saída
 1 valor(es) positivo(s)
 3 valor(es) negativo(s)
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+
+int main(int argc, char const *argv[])
+{
+	int num=5, par=0, impar=0, positivo=0, negativo=0;
+	int vetor[num];
+
+	for (int i = 0; i < num; i++)
+	{
+		vetor[i]=armazenaInt();
+		if (vetor[i]%2==0)
+			par++;
+		else
+			impar++;
+		if (vetor[i]>0)
+			positivo++;
+		else
+			negativo++;
+	}
+
+	printf("%i valor(es) par(es)\n%i valor(es) impar(es)\n%i valor(es) positivo(s)\n%i valor(es) negativo(s)\n", par, impar,positivo, negativo);
+	system("PAUSE");
+	return 0;
+}
+
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i", &valor);
+	fflush(stdin);
+
+	return valor;
+}

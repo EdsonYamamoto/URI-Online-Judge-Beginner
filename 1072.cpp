@@ -25,3 +25,64 @@ Exemplo de Entrada	Exemplo de Saída
 2 in
 2 out
 */
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+void alocaRealloc(int **pontNum, int tam);
+void teste();
+int condVetor(int *pontNum, int tamVet, int limSup, int limInf);
+
+int main()
+{
+	int numRepet, *pontNum, lSup=107, lInf=-107, in;
+
+	numRepet = armazenaInt();
+
+	//alocaRealloc(&pontNum,numRepet);
+
+	int vet[numRepet];
+	pontNum=vet;
+
+	for (int i = 0; i < numRepet; i++)
+		*(pontNum+i) = armazenaInt();
+
+	in = condVetor(pontNum, numRepet, lSup, lInf);
+
+	printf("%i in\n%i out\n", in, numRepet-in);
+
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void alocaRealloc(int **pontNum, int tam)
+{
+	if ((*pontNum=(int*)realloc(*pontNum, tam*sizeof(int)))==NULL)
+    	exit(1);
+   	teste();
+}
+
+int condVetor(int *pontNum, int tamVet, int limSup, int limInf)
+{
+	int result=0;
+	for (int i = 0; i < tamVet; i++)
+		if (*(pontNum+i)>=limInf && *(pontNum+i)<=limSup)
+			result++;
+
+	return result;
+}
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+}

@@ -25,3 +25,22 @@ I=2 J=?
 I=2 J=?
 I=2 J=?
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+	float I=0, J=1, aux=0; 
+	printf("I=%f J=%f \n",I ,J);
+	do{
+		I += 0.2;
+		for (int i = 0; i < 3; i++)
+		{
+			J += 0.2;
+			printf("I=%f J=%f \n",I ,J);
+		}
+	} while(I<2);
+	system("PAUSE");
+	return 0;
+}

@@ -32,3 +32,55 @@ Dia 9
 1 minuto(s)
 0 segundo(s)
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+int armazenaInt();
+int armazenaDataEvento();
+void calcTempoTotal(int duracao);
+int main(int argc, char const *argv[])
+{
+	int eventoInicio, eventoFim;
+	eventoInicio = armazenaDataEvento();
+	eventoFim = armazenaDataEvento();
+	calcTempoTotal(eventoFim - eventoInicio);
+
+	system("PAUSE");
+	return 0;
+}
+
+
+int armazenaInt()
+{
+	int valor;	
+	scanf("%i", &valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+int armazenaDataEvento()
+{
+	int segundos, segundo, minuto, hora, dia;
+	printf("Dia ");
+	dia = armazenaInt();
+	hora = armazenaInt();
+	minuto = armazenaInt();
+	segundo = armazenaInt();
+
+	segundos = segundo + minuto*60 + hora*3600 + dia*3600*24;
+
+	return segundos;
+}
+
+void calcTempoTotal(int duracao)
+{
+	int dias, horas, minutos, segundos;
+	dias = duracao/(3600*24);
+	horas = duracao%(3600*24)/3600;
+	minutos = duracao%(3600*24)%3600/60;
+	segundos = duracao%(3600*24)%3600%60;
+	printf("%i dia(s)\n%i hora(s)\n%i minuto(s)\n%i segundo(s)\n",dias, horas, minutos, segundos);
+}

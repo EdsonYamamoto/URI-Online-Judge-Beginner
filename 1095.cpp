@@ -20,3 +20,20 @@ I=7 J=50
 ...
 I=? J=0
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+	int i=1, j=60;
+	printf("I=%i J=%i\n", i, j);
+	for (int k = 0; k < 12; k++)
+	{
+		i += 3;
+		j -= 5;
+		printf("I=%i J=%i\n", i, j);
+	}
+	system("PAUSE");
+	return 0;
+}

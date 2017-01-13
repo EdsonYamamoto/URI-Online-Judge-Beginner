@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 		
 	printf("NUMBER = %d\n",A);
 	printf("SALARY = U$ %.2lf\n",SALARIO);
-	
+	system("PAUSE");
 	return 0;
 	
 }

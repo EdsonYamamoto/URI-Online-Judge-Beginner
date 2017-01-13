@@ -24,3 +24,45 @@ Exemplo de Entrada	Exemplo de Saída
 12
 0
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+int somaImpar(int numero1, int numero2);
+
+int main(int argc, char const *argv[])
+{
+	int num1, num2, result;
+
+	num1 = armazenaInt();
+	num2 = armazenaInt();
+
+	result = somaImpar(num1, num2);
+	printf("%i\n", result);
+
+	system("PAUSE");
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+int somaImpar(int numero1, int numero2)
+{
+	int resultado=0;
+
+	if (numero1%2!=0)
+		resultado +=numero1;
+
+	if (numero2%2!=0)
+		resultado +=numero2;
+
+	return resultado;
+}

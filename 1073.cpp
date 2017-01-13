@@ -27,22 +27,34 @@ Exemplo de Entrada	Exemplo de Saída
 #include <math.h>
 
 int armazenaInt();
+int contador(int repete, int *pontNum);
 void teste();
 
 int main()
 {
-	int numRepet, *pontNum;
+	int numRepet, *pontNum, *novoPont, qtd=0, i;
 
 	numRepet = armazenaInt();
 
 	int vet[numRepet];
 	pontNum=vet;
 
-	for (int i = 0; i < numRepet; i++)
-		*(pontNum+i) = armazenaInt();
+	qtd = contador(numRepet,pontNum);
+	
+	int powVet[qtd], cont=0;
+	novoPont = powVet;
 
-	for (int i = 0; i < numRepet; i++)
-		printf("%i^2 = %i\n", *(pontNum+i), pow(*(pontNum+i),2));
+	for (int i = 0; i < qtd; i++)
+	{
+		if (*(pontNum+i)%2==0)
+		{
+			*(novoPont+cont) = pow(*(pontNum+i),2);
+			cont++;
+		}
+	}
+	
+	for (int i = 0; i < qtd; i++)
+		printf("%i^2 = %i\n", *(pontNum+i), *(novoPont+i));
 
 	system("PAUSE");
 
@@ -58,8 +70,23 @@ int armazenaInt()
 	return valor;
 }
 
+
+int contador(int repete, int *pontNum)
+{
+	int qtdCont=0, i;
+	for (int i = 1; i <= repete; i++)
+		if (i%2==0)
+		{
+			*(pontNum+qtdCont)=i;
+			qtdCont++;
+		}
+
+	return qtdCont;
+}
+
 void teste()
 {
 	printf("teste\n");
 	system("PAUSE");
-}
+} 
+

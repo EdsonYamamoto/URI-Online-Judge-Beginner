@@ -29,3 +29,58 @@ Isento
 4520.00
 R$ 355.60
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+float armazenaFloat();
+float calcImposto(float taxa);
+void imprimiResult(float valor);
+void imprimiFloat(float valor);
+
+int main(int argc, char const *argv[])
+{
+	float salario;
+	salario = armazenaFloat();
+	imprimiResult(calcImposto(salario));
+	system("PAUSE");
+	return 0;
+}
+
+float armazenaFloat()
+{
+	float valor;
+	scanf ("%f",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void imprimiResult(float valor)
+{
+	printf("R$ %.2f\n", valor);
+}
+
+float calcImposto(float taxa)
+{
+	float taxacao;
+
+	if (taxa>=0 && taxa<=1000)
+		taxacao *= 1;
+
+	else if (taxa>= 1001&& taxa<=2000)
+		taxacao *= 2;
+
+	else if (taxa>= 2001&& taxa<=3000)
+		taxacao *= 3;
+
+	else 
+		taxacao *= 4;
+
+	return taxacao;
+}
+
+void imprimiFloat(float valor)
+{
+	printf("\n\n%f\n\n", valor);
+}

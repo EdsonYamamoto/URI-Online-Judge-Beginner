@@ -20,3 +20,20 @@ Exemplo de Entrada	Exemplo de Saída
 ...
 100
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(int argc, char const *argv[])
+{
+	int i;
+	for (int i = 1; i < 101; ++i)
+	{
+		if (i%2 == 0)
+		{
+			printf("%i\n", i);
+		}
+	}
+	system("PAUSE");
+	return 0;
+}

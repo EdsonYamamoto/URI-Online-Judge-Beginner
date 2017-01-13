@@ -22,3 +22,112 @@ Exemplo de Entrada	Exemplo de Saída
 6.3
 9.3
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+int armazenaInt();
+float armazenaFloat();
+
+void geraAleatorioFloat(float *pontNum, int tamanho);
+void armazentaVetorFloat(float *pontNum, int tamanho);
+
+void imprimiVet(float *pontNum, int tamanho);	
+void alocaRealloc(float **pontNum, int tamanho);
+void teste();
+
+int main()
+{
+	int repet;
+	float *pontNum=NULL;
+
+	repet = armazenaInt()*3;
+	alocaRealloc(&pontNum, repet);
+	//geraAleatorioFloat(pontNum,repet);
+	armazentaVetorFloat(pontNum,repet);
+	imprimiVet(pontNum, repet);
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+float armazenaFloat()
+{
+	float valor;
+	scanf("%f",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void geraAleatorioFloat(float *pontNum, int tamanho)
+{
+	float valor;
+	srand(time(NULL));
+	for (int i = 0; i < tamanho; i++)
+		*(pontNum+i) = rand() % 100;
+}
+
+void armazentaVetorFloat(float *pontNum, int tamanho)
+{
+	for (int i = 0; i < tamanho; i++)
+		*(pontNum+i) = armazenaFloat();
+}
+
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+} 
+
+void imprimiVet(float *pontNum, int tamanho)
+{
+	float soma=0;
+	for (int i = 0; i < tamanho; i++)
+	{
+		if (i%3==0)
+		{
+			*(pontNum+i) *= 2;
+		}
+
+		else if (i%3==1)
+		{
+			*(pontNum+i) *= 3;
+		}
+
+		else if (i%3==2)
+		{
+			*(pontNum+i) *= 5;
+		}
+	}
+	for (int i = 0; i <= tamanho; i++)
+	{
+		if (i%3!=0)
+			soma += *(pontNum+i);
+
+		else
+		{
+			if (i!=0)
+				printf("%.1f\n", soma/10);
+	
+			soma=0;
+			soma += *(pontNum+i);
+		}
+	}
+}
+
+void alocaRealloc(float **pontNum, int tamanho)
+{
+	if ((*pontNum=(float*)realloc(*pontNum, tamanho*sizeof(float)))==NULL)
+		exit(1);
+}

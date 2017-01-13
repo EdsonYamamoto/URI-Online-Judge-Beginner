@@ -27,3 +27,45 @@ Exemplo de Entrada	Exemplo de Saída
 9 x 140 = 1260
 10 x 140 = 1400
 */
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+
+void imprimiVet(int tamanho, int limInf, int limSup);	
+
+void teste();
+
+int main()
+{
+	int repet, lInf=1, lSup=10;
+
+	repet = armazenaInt();
+	
+	imprimiVet(repet, lInf, lSup);
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+} 
+
+void imprimiVet(int tamanho, int limInf, int limSup)
+{
+	for (int i = limInf; i <= limSup; i++)
+		printf("%i x %i = %i\n", i, tamanho, tamanho*i);
+}

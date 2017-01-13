@@ -30,3 +30,9 @@ Exemplo de Entrada	Exemplo de Saída
 0
 12
 */
+
+int main()
+{
+	
+	return 0;
+}

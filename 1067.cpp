@@ -20,3 +20,33 @@ Exemplo de Entrada	Exemplo de Saída
 5
 7
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+int armazenaInt();
+
+int main(int argc, char const *argv[])
+{
+	int inicio, fim;
+
+	inicio = armazenaInt();
+	fim = armazenaInt();
+
+	for (int i = inicio; i <= fim; i++)
+		if (i%2!=0)
+			printf("%i\n", i);		
+
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}

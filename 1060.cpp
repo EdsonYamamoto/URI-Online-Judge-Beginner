@@ -22,3 +22,45 @@ Exemplo de Entrada	Exemplo de Saída
 12
 4 valores positivos
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+
+float armazenaFloat();
+int contador();
+
+int main(int argc, char const *argv[])
+{
+	int vezes;
+
+	//vezes = contador();
+	//printf("%i valores positivos\n", vezes);
+	printf("%i valores positivos\n", contador());
+	system("PAUSE");	
+	return 0;
+}
+
+float armazenaFloat()
+{
+	float valor;
+	scanf("%f", &valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+int contador()
+{
+	float contador[6];
+	int aux=0;
+
+	for (int i = 0; i < 6; i++)
+	{
+		contador[i]=armazenaFloat();
+		if (contador[i]>0)
+		{
+			aux++;
+		}
+	}
+	return aux;
+}
