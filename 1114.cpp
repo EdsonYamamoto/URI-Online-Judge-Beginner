@@ -24,3 +24,55 @@ Senha Invalida
 Acesso Permitido
 Formatação e inserção no portal por Cássio Favaretto.
 */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+int armazenaInt();
+
+void imprimi(int *pontNum, int tamanho);	
+void alocaRealloc(int **pontNum, int tamanho);
+void teste();
+
+int main()
+{
+	int repet=0, senha=2002, chaveSenha=0;
+
+	do{
+		repet = armazenaInt();
+		if (repet!=senha)
+			printf("Senha Invalida\n");
+		
+		else
+		{
+			chaveSenha=1;
+			printf("Acesso Permitido\n");
+		}
+		
+	} while (chaveSenha!=1);
+	system("PAUSE");
+
+	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+} 
+
+void alocaRealloc(int **pontNum, int tamanho)
+{
+	if ((*pontNum=(int*)realloc(*pontNum, tamanho*sizeof(int)))==NULL)
+		exit(1);
+}

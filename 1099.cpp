@@ -31,8 +31,74 @@ Exemplo de Entrada	Exemplo de Saída
 12
 */
 
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+int armazenaInt();
+
+void geraAleatorioInt(int *pontNum, int tamanho);
+void armazentaVetorInt(int *pontNum, int tamanho);
+
+void imprimiVet(int *pontNum, int tamanho);	
+void alocaRealloc(int **pontNum, int tamanho);
+void teste();
+
 int main()
 {
-	
+	int repet, *pontNum=NULL;
+
+	repet = armazenaInt() * 2;
+	alocaRealloc(&pontNum, repet);
+	//geraAleatorioInt(pontNum,repet);
+	armazentaVetorInt(pontNum,repet);
+	imprimiVet(pontNum, repet);
+	system("PAUSE");
+
 	return 0;
+}
+
+int armazenaInt()
+{
+	int valor;
+	scanf("%i",&valor);
+	fflush(stdin);
+
+	return valor;
+}
+
+void geraAleatorioInt(int *pontNum, int tamanho)
+{
+	int valor;
+	srand(time(NULL));
+	for (int i = 0; i < tamanho; i++)
+		*(pontNum+i) = rand() % 100;
+}
+
+void armazentaVetorInt(int *pontNum, int tamanho)
+{
+	for (int i = 0; i < tamanho; i++)
+		*(pontNum+i) = armazenaInt();
+}
+
+void teste()
+{
+	printf("teste\n");
+	system("PAUSE");
+} 
+
+void imprimiVet(int *pontNum, int tamanho)
+{
+
+	for (int i = 0; i < tamanho; i++)
+	{
+		
+	}
+}
+
+void alocaRealloc(int **pontNum, int tamanho)
+{
+	if ((*pontNum=(int*)realloc(*pontNum, tamanho*sizeof(int)))==NULL)
+		exit(1);
 }
